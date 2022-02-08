@@ -350,16 +350,6 @@ INC_PATH		+= -I$(TCA_DIR)/include -I$(IPC_DIR)/include
 
 DEFINES		= 
 
-ifeq ($(THIS_OS),Linux)
-# See if this is at release 2.0, or higher
-ifeq ($(sort 2.0 $(THIS_RELEASE)),2.0 $(THIS_RELEASE))
-DEFINES += -DREDHAT_52
-endif
-ifeq ($(sort 2.2 $(THIS_RELEASE)),2.2 $(THIS_RELEASE))
-DEFINES += -DREDHAT_6
-endif
-endif
-
 CPPFLAGS	= $(INC_PATH) $(DEFINES)
 CFLAGSS_STRIP	= -Xlinker -s
 STRIP_BY_DEFAULT= 

@@ -51,9 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Ignore OLD CVS files
-CVS/
-
 # Folders
 bin/
 build/
@@ -64,5 +61,8 @@ lib/
 sharedObj/
 # Ignore build files
 /lib/
+
+*~
+#*#
 
 .vscode
