@@ -43,24 +43,8 @@
 
 
 ifndef BASE_THREADS_DIR
-  BASE_THREADS_DIR = .
-endif
-
-
-
-ifndef BASE_OS_SYSTEM
-  BASE_OS_SYSTEM = $(shell uname -s)
-  export BASE_OS_SYSTEM
-endif
-
-ifndef BASE_OS_RELEASE
-  BASE_OS_RELEASE = $(shell uname -r|tr '-' '.'|awk -F. '{print $$1 "." $$2}')
-  export BASE_OS_RELEASE
-endif
-
-ifndef BASE_OS_DIR
-  BASE_OS_DIR     = $(BASE_OS_SYSTEM)-$(BASE_OS_RELEASE)
-  export BASE_OS_DIR
+  BASE_THREADS_DIR = `pwd`
+  export BASE_THREADS_DIR
 endif
 
 #
@@ -84,18 +68,14 @@ ifdef THREADS_USE_SINGLE_DIR
 
 else
 
-  ifndef THREADS_OS_DIR
-    THREADS_OS_DIR     = $(BASE_OS_DIR)
-  endif
-
   ifndef THREADS_OBJECT_DIR
-    THREADS_OBJECT_DIR = obj/$(THREADS_OS_DIR)
+    THREADS_OBJECT_DIR = obj
   endif
 
 endif
 
 ifndef THREADS_LIBRARY_DIR
-  THREADS_LIBRARY_DIR = $(BASE_THREADS_DIR)/lib/$(THREADS_OS_DIR)
+  THREADS_LIBRARY_DIR = lib
 endif
 
 

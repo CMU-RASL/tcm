@@ -242,6 +242,10 @@ MISC	= GNUmakefile
 
 _OBJS  = $(SRCS:.cc=.o)
 OBJS = $(patsubst %,$(ODIR)/%,$(_OBJS))
+ifdef THREADED
+OBJS += $(BASE_THREADS_DIR)/obj/Mutex.o $(BASE_THREADS_DIR)/obj/MutexedObject.o\
+	$(BASE_THREADS_DIR)/obj/Semaphore.o $(BASE_THREADS_DIR)/obj/Thread.o
+endif
 
 ##########
 # Default Target
